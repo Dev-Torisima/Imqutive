@@ -1,3 +1,6 @@
+//Script2.js
+//Created by Torisima 2025
+
 var e1 = document.getElementsByClassName("e1")[0];
 var e2 = document.getElementsByClassName("e2")[0];
 var e3 = document.getElementsByClassName("e3")[0];
