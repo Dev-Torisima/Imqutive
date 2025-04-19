@@ -6,48 +6,97 @@ var e2 = document.getElementsByClassName("e2")[0];
 var e3 = document.getElementsByClassName("e3")[0];
 var e4 = document.getElementsByClassName("e4")[0];
 var e5 = document.getElementsByClassName("e5")[0];
+var e6 = document.getElementsByClassName("e6")[0];
+var e7 = document.getElementsByClassName("e7")[0];
+var e8 = document.getElementsByClassName("e8")[0];
+var e9 = document.getElementsByClassName("e9")[0];
+var e10 = document.getElementsByClassName("e10")[0];
 
-var v1 = 4;
+var v1 = [new Uint8Array(), new Uint8Array(), new Uint8Array(), new Uint8Array(), new Uint8Array(), new Uint8Array(), new Uint8Array()];
 var v2 = 0;
 var v3 = document.createElement('canvas');
 var v4 = v3.getContext("2d");
 
 
-e2.addEventListener('change', ()=>
-{
-    const c0 = e2.selectedIndex;
 
-    if (c0 == 0)
+e1.addEventListener('change', (a) => f2(a, 1));
+e2.addEventListener('change', (a) => f2(a, 2));
+e3.addEventListener('change', (a) => f2(a, 3));
+e4.addEventListener('change', (a) => f2(a, 4));
+e5.addEventListener('change', (a) => f2(a, 5));
+e6.addEventListener('change', (a) => f2(a, 6));
+e7.addEventListener('change', (a) => f2(a, 7));
+
+e8.addEventListener('click', ()=>
 {
-v1 = 4;
-}
-else if (c0 == 1)
+if (v2 == 1)
 {
-v1 = 8;
-}
-else if (c0 == 2)
-{
-v1 = 16;
-}
-else if (c0 == 3)
-{
-v1 = 32;
-}
-else if (c0 == 4)
-{
-v1 = 64;
-}
-else if (c0 == 5)
-{
-v1 = 128;
-}
-else if (c0 == 6)
-{
-v1 = 0;
+v2 = 9;
+
+e9.href = f1();
+
+v2 = 1;
 }
 });
 
-e1.addEventListener('change', function (a1) 
+
+
+function f1()
+{
+let l1 = 0;
+
+let l4 = [];
+let l5 = 0;
+
+for (let i = 0; i < v1.length; i++)
+{
+    if (v1[i].length != 0)
+    {
+        l4.push(i);
+        l5 += v1[i].length;
+    }
+}
+
+let l2 = new ArrayBuffer(6 + l4.length * 16 + l5);
+let l3 = new DataView(l2);
+
+
+
+l3.setUint8(0, 0x00);
+l3.setUint8(1, 0x00);
+l3.setUint8(2, 0x01);
+l3.setUint8(3, 0x00);
+l3.setUint16(4, l4.length, true);
+
+l1 += 6;
+
+if (l4.length != 0)
+{
+    let l6 = 16 * l4.length + 6;
+for (let i = 0; i < l4.length; i++) 
+    {
+    l3.setUint8(l1 + 0, f3(l4[i]));
+l3.setUint8(l1 + 1, f3(l4[i]));
+l3.setUint8(l1 + 2, 0x00);
+l3.setUint8(l1 + 3, 0x00);
+l3.setUint8(l1 + 4, 0x01);
+l3.setUint8(l1 + 5, 0x00);
+l3.setUint8(l1 + 6, 0x20);
+l3.setUint8(l1 + 7, 0x00);
+l3.setUint32(l1 + 8, v1[l4[i]].length, true);
+l3.setUint32(l1 + 12, l6, true);
+
+new Uint8Array(l2).set(v1[l4[i]], l6);
+
+l1 += 16;
+l6 += v1[l4[i]].length;
+}
+}
+
+return "data:image/vnd.microsoft.icon;base64," + encode(new Uint8Array(l2));
+}
+
+function f2(a1, l8)
 {
 const c3 = a1.target.files[0];
 if (c3)
@@ -62,18 +111,31 @@ const c6 = new Image();
 
 c6.onload = ()=>
 {
-v3.width = c6.width;
+    if ((l8 != 7 & c6.width == f3(l8 - 1) & c6.height == f3(l8 - 1)) | (l8 == 7 & c6.width == 256 & c6.height == 256))
+        {
+        e10.style.visibility = 'collapse';
+
+        v3.width = c6.width;
 v3.height = c6.height;
 
 v4.drawImage(c6, 0, 0);
 
-v2 = 2;
+v1[l8] = decode(v3.toDataURL("image/png").split(',')[1]);
+
+v2 = 1;
+        }
+        else
+        {
+        e10.style.visibility = 'visible';
+
+        v2 = 0;
+        }
 };
 
 c6.src = a2.target.result;
 };
 
-c5.onerror = function (a)
+c5.onerror = function (a3)
 {
 e1.files = [];
 v2 = 0;
@@ -81,59 +143,18 @@ v2 = 0;
 
 c5.readAsDataURL(c3);
 }
-});
+}
 
-e3.addEventListener('click', ()=>
+function f3(l12)
 {
-if (v2 == 2)
+if (l12 == 6)
 {
-v2 = 3;
-
-if ((v1 != 0 & v3.width == v1 & v3.height == v1) | (v1 == 0 & v3.width == 256 & v3.height == 256))
-{
-e5.style.visibility = 'collapse';
-e4.href = f1();
+    return 0;
 }
 else
 {
-e5.style.visibility = 'visible';
+    return 4 * 2 ** l12;
 }
-
-v2 = 2;
-}
-});
-
-
-
-function f1()
-{
-let l1 = decode(v3.toDataURL("image/png").split(',')[1]);
-let l2 = new ArrayBuffer(22 + l1.length);
-let l3 = new DataView(l2);
-
-l3.setUint8(0, 0x00);
-l3.setUint8(1, 0x00);
-l3.setUint8(2, 0x01);
-l3.setUint8(3, 0x00);
-l3.setUint8(4, 0x01);
-l3.setUint8(5, 0x00);
-l3.setUint8(6, v1);
-l3.setUint8(7, v1);
-l3.setUint8(8, 0x00);
-l3.setUint8(9, 0x00);
-l3.setUint8(10, 0x01);
-l3.setUint8(11, 0x00);
-l3.setUint8(12, 0x20);
-l3.setUint8(13, 0x00);
-l3.setUint32(14, l1.length, true);
-l3.setUint8(18, 0x16);
-l3.setUint8(19, 0x00);
-l3.setUint8(20, 0x00);
-l3.setUint8(21, 0x00);
-
-new Uint8Array(l2).set(l1, 22);
-
-return "data:image/vnd.microsoft.icon;base64," + encode(new Uint8Array(l2));
 }
 
 function encode(data)
