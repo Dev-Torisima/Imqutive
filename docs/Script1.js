@@ -1,5 +1,8 @@
 //Script1.js
 //Created by Torisima 2025
+//Script1.js => Script3.js or Script4.js => Script5.js
+
+var p1 = document.getElementsByClassName("p1")[0];
 
 var e1 = document.getElementsByClassName("e1")[0];
 var e2 = document.getElementsByClassName("e2")[0];
@@ -19,82 +22,15 @@ var v4 = v3.getContext("2d");
 
 
 
-e1.addEventListener('change', (a) => f2(a, 1));
-e2.addEventListener('change', (a) => f2(a, 2));
-e3.addEventListener('change', (a) => f2(a, 3));
-e4.addEventListener('change', (a) => f2(a, 4));
-e5.addEventListener('change', (a) => f2(a, 5));
-e6.addEventListener('change', (a) => f2(a, 6));
-e7.addEventListener('change', (a) => f2(a, 7));
-
-e8.addEventListener('click', ()=>
-{
-if (v2 == 1)
-{
-v2 = 9;
-
-e9.href = f1();
-
-v2 = 1;
-}
-});
+e1.addEventListener('change', (a) => f2(a, 0));
+e2.addEventListener('change', (a) => f2(a, 1));
+e3.addEventListener('change', (a) => f2(a, 2));
+e4.addEventListener('change', (a) => f2(a, 3));
+e5.addEventListener('change', (a) => f2(a, 4));
+e6.addEventListener('change', (a) => f2(a, 5));
+e7.addEventListener('change', (a) => f2(a, 6));
 
 
-
-function f1()
-{
-let l1 = 0;
-
-let l4 = [];
-let l5 = 0;
-
-for (let i = 0; i < v1.length; i++)
-{
-    if (v1[i].length != 0)
-    {
-        l4.push(i);
-        l5 += v1[i].length;
-    }
-}
-
-let l2 = new ArrayBuffer(6 + l4.length * 16 + l5);
-let l3 = new DataView(l2);
-
-
-
-l3.setUint8(0, 0x00);
-l3.setUint8(1, 0x00);
-l3.setUint8(2, 0x01);
-l3.setUint8(3, 0x00);
-l3.setUint16(4, l4.length, true);
-
-l1 += 6;
-
-if (l4.length != 0)
-{
-    let l6 = 16 * l4.length + 6;
-for (let i = 0; i < l4.length; i++) 
-    {
-    l3.setUint8(l1 + 0, f3(l4[i]));
-l3.setUint8(l1 + 1, f3(l4[i]));
-l3.setUint8(l1 + 2, 0x00);
-l3.setUint8(l1 + 3, 0x00);
-l3.setUint8(l1 + 4, 0x01);
-l3.setUint8(l1 + 5, 0x00);
-l3.setUint8(l1 + 6, 0x20);
-l3.setUint8(l1 + 7, 0x00);
-l3.setUint32(l1 + 8, v1[l4[i]].length, true);
-l3.setUint32(l1 + 12, l6, true);
-
-new Uint8Array(l2).set(v1[l4[i]], l6);
-
-l1 += 16;
-l6 += v1[l4[i]].length;
-}
-}
-
-return "data:image/vnd.microsoft.icon;base64," + encode(new Uint8Array(l2));
-}
 
 function f2(a1, l8)
 {
@@ -111,7 +47,7 @@ const c6 = new Image();
 
 c6.onload = ()=>
 {
-    if ((l8 != 7 & c6.width == f3(l8 - 1) & c6.height == f3(l8 - 1)) | (l8 == 7 & c6.width == 256 & c6.height == 256))
+    if ((l8 != 6 & c6.width == f3(l8) & c6.height == f3(l8)) | (l8 == 6 & c6.width == 256 & c6.height == 256))
         {
         e10.style.visibility = 'collapse';
 
