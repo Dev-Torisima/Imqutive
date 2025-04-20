@@ -2,7 +2,6 @@
 //Created by Torisima 2025
 
 var e1 = document.getElementsByClassName("e1")[0];
-var e2 = document.getElementsByClassName("e2")[0];
 var e3 = document.getElementsByClassName("e3")[0];
 var e4 = document.getElementsByClassName("e4")[0];
 var e5 = document.getElementsByClassName("e5")[0];
@@ -66,7 +65,16 @@ if (v2 == 2)
 {
 v2 = 3;
 
-e4.href = f1();
+if (v5 == 2 & (!(v6 >= 0 & v7 >= 0 & v6 < v3.width & v7 < v3.height)))
+    {
+        e5.style.visibility = 'visible';
+    }
+    else
+    {
+        e5.style.visibility = 'collapse';
+    
+        e4.href = f1();
+    }
 
 v2 = 2;
 }
@@ -82,7 +90,7 @@ let l3 = new DataView(l2);
 
 l3.setUint8(0, 0x00);
 l3.setUint8(1, 0x00);
-l3.setUint8(2, 0x01);
+l3.setUint8(2, v5);
 l3.setUint8(3, 0x00);
 l3.setUint8(4, 0x01);
 l3.setUint8(5, 0x00);
@@ -90,10 +98,8 @@ l3.setUint8(6, f2(v3.width));
 l3.setUint8(7, f2(v3.height));
 l3.setUint8(8, 0x00);
 l3.setUint8(9, 0x00);
-l3.setUint8(10, 0x01);
-l3.setUint8(11, 0x00);
-l3.setUint8(12, 0x20);
-l3.setUint8(13, 0x00);
+l3.setUint16(10, v6, true);
+l3.setUint16(10, v7, true);
 l3.setUint32(14, l1.length, true);
 l3.setUint8(18, 0x16);
 l3.setUint8(19, 0x00);
