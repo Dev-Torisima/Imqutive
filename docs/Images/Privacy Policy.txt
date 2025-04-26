@@ -33,7 +33,7 @@ Privacy Policy
 本ポリシー改訂の際には本アプリケーションまたはウェブページ内にてお知らせいたします。
 
 7 : 制定日・改訂日
-制定 : 2025年4月24日
+制定 : 2025年4月25日
 
 
 
@@ -42,5 +42,32 @@ Privacy Policy
 Privacy Policy
 
 This is a little long, but please read it as it is important.
+This applies to both the downloaded app version and the web browser version.
 
-Sorry, see Japanese Version.
+0: Terminology
+Application : The service used
+Developer : The person who created this Application
+Customer : The person who uses this Application
+Personal Information : Information that can identify Customer or a third party
+
+1: Consent
+Customer must agree to this policy to use this Application. When Customer use this Application, Customer are deemed to have agreed to this policy. When Customer terminate Customer's use of this Application, this policy will become invalid.
+
+2: Personal information collected
+In principle, this Application does not collect any Personal Information. As an exception, it may be used only within this Application if Customer provide it, and only to provide the functions of this Application.
+
+3: Access to files
+This Application may access files on Customer's device to save and/or read Customer's data within this Application. In such cases, such access is limited to providing the functions of this Application.
+
+4: External transmission/transmission to third parties
+We will not transmit information about Customer to external parties or third parties.
+
+5: Inquiries
+For inquiries (including complaints) regarding the Developer or this policy, please contact the following:
+Email address: apqu_tori@outlook.com
+
+6: Revisions
+When this policy is revised, we will notify you within the Application or webpage.
+
+7: Date of establishment/revision
+Established: April 25, 2025
