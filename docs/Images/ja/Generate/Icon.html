@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="簡単かつ単純かつサイズの指定ができる無料のアイコン作成を行います。">
+    <link rel="icon" href="https://dev-torisima.github.io/Imqutive/favicon.ico">
+<title>Generate - Imqutive Images</title>
+</head>
+<body style="overflow-x: hidden;">
+    <header>
+<p>アイコン生成</p>
+    </header>
+    <main style="height: 80vh;">
+        <p>
+            <input accept="image/*" type="file" class="e1">
+        </p>
+<p class="e2" style="overflow-x: auto; margin-left: 1vw; margin-right: 1vw; width: 98vw; white-space: nowrap;">
+    
+</p>
+<button class="e7">クリア</button>
+<button class="e8">生成</button>
+        <a class="e9" download="Icon.ico">ダウンロード</a>
+        <a class="e10" style="color: red; visibility: collapse;">サイズエラー</a>
+    </main>
+    <footer>
+        <p><select class="e27" style="width: 100px; height: 30px;">
+            <option value="ico" selected>アイコン</option>
+            <option value="cur">カーソル</option>
+        </select></p>
+        <p></p>
+        <p>copyright (c) Torisima 2025</p>
+    </footer>
+
+    <style>
+        :root
+    {
+      color-scheme: light dark;
+    }
+
+    body
+    {
+      background-color: light-dark(#ffffffff, #000000ff);
+    }
+</style>
+
+<script type="text/javascript" src="https://dev-torisima.github.io/Imqutive/Images/Script1.js"></script>
+    <script type="text/javascript">
+//Only Program
+const v5 = 1;
+const v6 = 0x01;
+const v7 = 0x20;
+
+        //All Program
+var e27 = document.getElementsByClassName('e27')[0];
+
+e27.addEventListener('change', ()=>
+{
+    const c6 = e27.selectedIndex;
+    var v56 = "";
+    if (c6 == 0) v56 = "Icon.html";
+    else if (c6 == 1) v56 = "Cursor.html";
+
+    window.location.replace(v56);
+});
+    </script>
+    <script type="text/javascript" src="https://dev-torisima.github.io/Imqutive/Images/Script2.js"></script>
+</body>
+</html>
