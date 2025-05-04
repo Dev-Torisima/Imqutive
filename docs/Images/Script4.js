@@ -1,5 +1,6 @@
 //Script4.js
 //Copyright (c) 2025 Torisima
+
 var e1 = document.getElementsByClassName("e1")[0];
 var e2 = document.getElementsByClassName("e2")[0];
 var e3 = document.getElementsByClassName("e3")[0];
@@ -11,12 +12,12 @@ var v4 = v3.getContext("2d");
 
 e1.addEventListener('change', function (a1) 
 {
-const ToBitmap_Const3 = a1.target.files[0];
-if (ToBitmap_Const3)
+const c1 = a1.target.files[0];
+if (c1)
 {
 v2 = 1;
 
-const r = new FileReader(ToBitmap_Const3);
+const r = new FileReader(c1);
 
 r.onload = function (a2)
 {
@@ -42,7 +43,7 @@ e1.files = [];
 v2 = 0;
 };
 
-r.readAsDataURL(ToBitmap_Const3);
+r.readAsDataURL(c1);
 }
 });
 
