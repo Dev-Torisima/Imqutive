@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="This is the simple and easy cursor generater.">
     <link rel="icon" href="../../../favicon.ico">
-<title>Generate - Imqutive Images</title>
+<title>Generate Cursor - Imqutive Images</title>
 </head>
 <body style="overflow-x: hidden;">
-        <div style="position: absolute; width: 190px; top: 10px; left: 100vw; transform: translate(-190px, 0px);">PrivacyPolicy is <a href="../../PrivacyPolicy.txt">here</a>.</div>
+    <div style="position: absolute; width: 190px; top: 10px; left: 100vw; transform: translate(-190px, 0px);">PrivacyPolicy is <a href="../../PrivacyPolicy.txt">here</a>.</div>
 
     <header>
-<p>Generate Cursor</p>
+<p>Generate Cursor(.cur)</p>
     </header>
     <main style="height: 80vh;">
         <p>
@@ -32,9 +32,12 @@
         <a class="e10" style="color: red; visibility: collapse;">size error</a>
     </main>
     <footer>
-        <p><select class="e27" style="width: 100px; height: 30px;">
-            <option value="ico">Icon</option>
-            <option value="cur" selected>Cursor</option>
+        <p><select class="e27" style="width: 150px; height: 30px;">
+            <option value="pico">Icon(Png)</option>
+            <option value="pcur" selected>Cursor(Png)</option>
+            <option value="bico">Icon(Bitmap)</option>
+            <option value="bcur">Cursor(Bitmap)</option>
+            <option value="acur">Animation Cursor</option>
         </select></p>
         <p></p>
         <p>copyright (c) Torisima 2025</p>
@@ -72,6 +75,13 @@ e4.addEventListener('change', ()=>
 });
 
 
+//Get Png Data
+function f10()
+{
+    return decode(v3.toDataURL("image/png").split(',')[1]);
+}
+
+
         //All Program
 var e27 = document.getElementsByClassName('e27')[0];
 
@@ -81,6 +91,9 @@ e27.addEventListener('change', ()=>
     var v56 = "";
     if (c6 == 0) v56 = "Icon.html";
     else if (c6 == 1) v56 = "Cursor.html";
+    else if (c6 == 2) v56 = "BitmapIcon.html";
+    else if (c6 == 3) v56 = "BitmapCursor.html";
+    else if (c6 == 4) v56 = "AniCur.html";
 
     window.location.replace(v56);
 });
