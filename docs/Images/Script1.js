@@ -1,6 +1,5 @@
 //Script1.js
-//Created by Torisima 2025
-//Script1.js => Script2.js
+//Copyright (c) Torisima 2025
 
 var p1 = document.getElementsByClassName("p1")[0];
 
@@ -20,83 +19,6 @@ var v14 = [];
 var v15 = [];
 
 
-
-e1.addEventListener('change', (a1)=>
-{
-const c3 = a1.target.files[0];
-if (c3)
-{
-v2 = 1;
-
-const c5 = new FileReader(c3);
-
-c5.onload = function (a2)
-{
-const c6 = new Image();
-
-c6.onload = ()=>
-{
-    if (c6.width <= 256 & c6.height <= 256 & c6.width > 0 & c6.height > 0)
-        {
-        e10.style.visibility = 'collapse';
-
-        v3.width = c6.width;
-v3.height = c6.height;
-
-v4.fillStyle = 'rgba(0, 0, 0, 0)';
-v4.clearRect(0, 0, v3.width, v3.height);
-
-v4.drawImage(c6, 0, 0);
-
-v1.push(decode(v3.toDataURL("image/png").split(',')[1]));
-
-if (v3.width == 256)
-{
-    v14.push(0);
-}
-else
-{
-    v14.push(v3.width);
-}
-if (v3.height == 256)
-    {
-        v15.push(0);
-    }
-    else
-    {
-        v15.push(v3.height);
-    }
-
-let l10 = document.createElement('img');
-l10.src = a2.target.result;
-l10.style.width = '25vw';
-l10.style.width = '25vw';
-l10.style.marginLeft = '10px';
-l10.style.marginRight = '10px';
-e2.appendChild(l10);
-
-v2 = 1;
-        }
-        else
-        {
-        e10.style.visibility = 'visible';
-
-        v2 = 0;
-        }
-};
-
-c6.src = a2.target.result;
-};
-
-c5.onerror = function (a3)
-{
-e1.files = [];
-v2 = 0;
-};
-
-c5.readAsDataURL(c3);
-}
-});
 
 e7.addEventListener('click', ()=>
     {
