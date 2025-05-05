@@ -53,7 +53,7 @@ function ToIconBitmap(l3)
 let l1 = new Uint8Array(0x7c + l2.length + l8.length);
 let rl = 0;
 
-//Info Header(V5)
+//Info Header
 l1.set(ToIconBitmap_Const1, rl);
 l1.set(ToBytes_u32(l3.width), rl + 4);
 l1.set(ToBytes_i32(l3.height * 2), rl + 8);
